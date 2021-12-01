@@ -8,6 +8,6 @@ FactoryBot.define do
     end_date { "2021-12-01" }
     recurring_type { 1 }
     is_recurring { false }
-    meetingroom_id { 1 }
+    meeting_room_id { 1 }
   end
 end

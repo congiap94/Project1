@@ -9,7 +9,7 @@ class CreateMeetings < ActiveRecord::Migration[6.1]
       t.date :end_date
       t.integer :recurring_type
       t.boolean :is_recurring
-      t.integer :meetingroom_id
+      t.integer :meeting_room_id
 
       t.timestamps
     end
