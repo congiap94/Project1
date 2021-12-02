@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2021_12_01_072100) do
     t.date "start_date"
     t.date "end_date"
     t.integer "recurring_type"
-    t.boolean "is_recurring"
     t.integer "meeting_room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
