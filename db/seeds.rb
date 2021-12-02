@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+5.times do
+  Office.create(  name:Faker::Address.city,
+                  address:Faker::Address.street_address )
+end
+
+20.times do 
+  User.create(name:Faker::Name.name,
+              email:Faker::Internet.email,
+              phone:Faker::PhoneNumber.cell_phone_in_e164)
+end
