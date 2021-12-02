@@ -10,7 +10,7 @@ module Project1
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    config.autoload_paths << config.root.join('app/serializers')
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -19,5 +19,6 @@ module Project1
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.factory_bot.definition_file_paths = ["custom/factories"]
+    config.api_only = true
   end
 end
