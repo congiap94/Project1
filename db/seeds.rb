@@ -7,12 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 5.times do
-  Office.create(  name:Faker::Address.city,
-                  address:Faker::Address.street_address )
+  Office.create( name:Faker::Address.city,
+                 address:Faker::Address.street_address )
 end
 
 20.times do 
-  User.create(name:Faker::Name.name,
-              email:Faker::Internet.email,
-              phone:Faker::PhoneNumber.cell_phone_in_e164)
+  User.create( name:Faker::Name.name,
+               email:Faker::Internet.email,
+               phone:Faker::PhoneNumber.cell_phone_in_e164,
+               office_id:rand(1..99) )
 end
+
+10.times do
+  OfficeManager.create ( office_id: rand(1..99), 
+                         user_id: rand(1..99) )
+end
+
