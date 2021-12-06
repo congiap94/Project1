@@ -1,9 +1,4 @@
-class ApplicationController < ActionController::API
-  def success_message(message, content = {}, seralizer)
-    ResponseTemplate.success(message, content, seralizer)
-  end
+# frozen_string_literal: true
 
-  def error_message(message, content = {})
-    ResponseTemplate.error(message, content)
-  end
+class ApplicationController < ActionController::API
 end

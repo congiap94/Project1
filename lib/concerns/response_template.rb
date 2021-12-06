@@ -1,16 +1,20 @@
+# frozen_string_literal: true
+
 module ResponseTemplate
-  def self.template(code, message, content, seralizer)
-      response = { code: code, message: message, data: ActiveModelSerializers::SerializableResource.new(content, each_serializer: seralizer) }
-  end
-  def self.template_error(code, message, content)
-    response = { code: code, message: message, data: content }
+  def self.template_serializer(code, message, seralizers, content = {})
+    { code: code, message: message,
+      data: ActiveModelSerializers::SerializableResource.new(content, serializer: seralizers) }
   end
 
-  def self.success(message, content, seralizer)
-      template(200, message, content, seralizer)
+  def self.template_error(code, message)
+    { code: code, message: message }
   end
 
-  def self.error(message, content)
-    template_error(500, message, content)
+  def self.success(code, message, seralizer, content = {})
+    template_serializer(code, message, content, seralizer)
+  end
+
+  def self.error(code, message)
+    template_error(code, message)
   end
 end
