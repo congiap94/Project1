@@ -22,5 +22,6 @@ module Project1
     config.autoload_paths << config.root.join('lib')
     config.autoload_paths << config.root.join('lib/concerns')
     config.autoload_paths << config.root.join('app/serializers')
+    config.autoload_paths << Rails.root.join('app', 'policy')
   end
 end

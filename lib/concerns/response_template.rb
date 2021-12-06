@@ -10,8 +10,8 @@ module ResponseTemplate
     { code: code, message: message }
   end
 
-  def self.success(code, message, seralizer, content = {})
-    template_serializer(code, message, content, seralizer)
+  def self.success(message, seralizer, content = {})
+    template_serializer(200, message, content, seralizer)
   end
 
   def self.error(code, message)

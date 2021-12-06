@@ -4,19 +4,18 @@ module Api
   module V1
     class BaseController < ApplicationController
       rescue_from ActiveRecord::RecordInvalid, with: :show_errors
+      rescue_from ActiveRecord::RecordNotFound, with: :show_errors_not_found
 
-      def success_message(code, message, seralizer, content = {})
-        ResponseTemplate.success(code, message, content, seralizer)
-      end
-
-      def error_message(code, message)
-        ResponseTemplate.error(code, message)
-      end
+      include HandleControllerError
 
       private
 
       def show_errors(exception)
-        render json: error_message(500, exception)
+        render json: error_message(400, exception)
+      end
+
+      def show_errors_not_found
+        render json: error_message(404, 'User not admin')
       end
     end
   end
