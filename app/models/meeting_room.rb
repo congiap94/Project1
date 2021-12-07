@@ -5,6 +5,6 @@ class MeetingRoom < ApplicationRecord
   belongs_to :office
   belongs_to :user
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { scope: :office }
   validates :seat, presence: true
 end

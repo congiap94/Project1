@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ClientPolicy
-  include HandleControllerError
   def initialize(id, office_id)
     @id = id
     @office_id = office_id
