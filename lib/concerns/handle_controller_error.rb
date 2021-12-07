@@ -9,7 +9,7 @@ module HandleControllerError
   end
 
   def error_message(code, message)
-    ResponseTemplate.error(code, message)
+    { code: code, message: message }
   end
 
   def render_invalid_error(exception)

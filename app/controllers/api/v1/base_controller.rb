@@ -6,7 +6,8 @@ module Api
       include HandleControllerError
 
       def authorize_meeting_room
-        render json: error_message(400, 'You are not admin of offcies') unless policy.admin?
+        policy = ClientPolicy.new(params[:user_id], params[:office_id])
+        render json: error_message(401, 'You are not admin of offcies') unless policy.admin?
       end
 
       private
@@ -23,10 +24,6 @@ module Api
         meta[:message] ||= 'Successfully'
         meta[:status]  ||= 200
         render json: { data: {}, meta: meta }
-      end
-
-      def policy
-        ClientPolicy.new(params[:user_id], params[:office_id])
       end
     end
   end
