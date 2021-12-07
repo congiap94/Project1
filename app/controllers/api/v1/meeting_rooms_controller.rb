@@ -3,24 +3,18 @@
 module Api
   module V1
     class MeetingRoomsController < BaseController
+      before_action :authorize_meeting_room, only: [:create]
+
       # POST /meeting_rooms
       def create
-        if policy.admin?
-          meeting_room = MeetingRoom.create! room_params
-          render json: success_message('Successfully', MeetingRoomSerializer, meeting_room)
-        else
-          render json: error_message(400, 'You are not admin of offcies')
-        end
+        meeting_room = MeetingRoom.create! room_params
+        render json: success_message('Successfully', MeetingRoomSerializer, meeting_room)
       end
 
       private
 
       def room_params
         params.permit(:name, :office_id, :user_id, :seat)
-      end
-
-      def policy
-        ClientPolicy.new(params[:user_id], params[:office_id])
       end
     end
   end
