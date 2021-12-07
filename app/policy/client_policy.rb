@@ -8,7 +8,7 @@ class ClientPolicy
 
   def admin?
     admin = OfficeManager.find_by!(user_id: @id)
-    return false if admin.nil? || admin.office_id != @office_id.to_i
+    return false if admin.office_id != @office_id.to_i
 
     true
   end

@@ -5,14 +5,18 @@ module Api
     class BaseController < ApplicationController
       include HandleControllerError
 
-      private
-
-      def show_errors(exception)
-        render json: error_message(400, exception)
+      def authorize_meeting_room
+        render json: error_message(400, 'You are not admin of offcies') unless policy.admin?
       end
 
-      def show_errors_not_found(exception)
-        render json: error_message(404, exception)
+      private
+
+      def success_message(message, seralizer, content = {})
+        ResponseTemplate.success(message, content, seralizer)
+      end
+
+      def policy
+        ClientPolicy.new(params[:user_id], params[:office_id])
       end
     end
   end
