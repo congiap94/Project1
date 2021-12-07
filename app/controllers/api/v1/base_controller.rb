@@ -11,8 +11,18 @@ module Api
 
       private
 
-      def success_message(message, seralizer, content = {})
-        ResponseTemplate.success(message, content, seralizer)
+      def render_data(objects, options:, meta:)
+        meta[:message] ||= ''
+        meta[:status]  ||= 200
+        options[:root] ||= 'data'
+
+        render json: objects, **options, meta: meta
+      end
+
+      def render_blank_with_message(meta: {})
+        meta[:message] ||= 'Successfully'
+        meta[:status]  ||= 200
+        render json: { data: {}, meta: meta }
       end
 
       def policy
