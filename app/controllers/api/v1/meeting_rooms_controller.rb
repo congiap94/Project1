@@ -8,7 +8,7 @@ module Api
       # POST /meeting_rooms
       def create
         meeting_room = MeetingRoom.create! room_params
-        render_data  meeting_room, options: { serializer: MeetingRoomSerializer }, meta: { message: 'Susccessfully' }
+        render_data  meeting_room, options: { serializer: MeetingRoomSerializer }, meta: { message: 'Successfully' }
       end
 
       private

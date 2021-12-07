@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MeetingRoomSerializer < ActiveModel::Serializer
-  attributes :id, :name, :seat, :user_id, :username, :office_name, :office_id
+  attributes :id, :name, :seat, :user_id, :username, :office_name
 
   def username
     object.user.name

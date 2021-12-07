@@ -8,15 +8,15 @@ module HandleControllerError
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_error
   end
 
-  def error_message(code, message)
-    { code: code, message: message }
+  def render_error_message(code, message)
+    render json: { code: code, message: message }
   end
 
   def render_invalid_error(exception)
-    render json: error_message(400, exception)
+    render_error_message(400, exception)
   end
 
   def render_not_found_error(exception)
-    render json: error_message(404, exception)
+    render_error_message(404, exception)
   end
 end

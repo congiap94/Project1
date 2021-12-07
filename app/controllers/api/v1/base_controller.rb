@@ -7,7 +7,7 @@ module Api
 
       def authorize_meeting_room
         policy = ClientPolicy.new(params[:user_id], params[:office_id])
-        render json: error_message(401, 'You are not admin of offcies') unless policy.admin?
+        render_error_message(401, 'You are not admin of offcies') unless policy.admin?
       end
 
       private
