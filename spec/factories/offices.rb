@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :office do
-    name { "MyString" }
-    address { "MyString" }
+    name { Faker::Address.city }
+    address { Faker::Address.street_address }
   end
 end

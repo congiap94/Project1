@@ -35,6 +35,7 @@ group :development, :test do
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -63,3 +64,4 @@ gem 'kaminari'
 gem 'rubocop', require: false
 gem 'active_model_serializers', '~> 0.10.12'
 gem 'simplecov', require: false, group: :test
+gem 'json'
