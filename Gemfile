@@ -64,4 +64,3 @@ gem 'kaminari'
 gem 'rubocop', require: false
 gem 'active_model_serializers', '~> 0.10.12'
 gem 'simplecov', require: false, group: :test
-gem 'json'

@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :meeting_room do
-    name { 'MyString' }
-    office_id { 1 }
-    user_id { 1 }
-    seat { 1 }
+    name { Faker::Name.name }
+    office_id { rand(1..99) }
+    user_id { rand(1..99) }
+    seat { rand(1..99) }
   end
 end
