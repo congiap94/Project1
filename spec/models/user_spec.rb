@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  office = FactoryBot.create(:office)
-  user = FactoryBot.create(:user, office: b)
-  it 'is valid with valid attributes' do
-    expect(user).to be_valid
-  end
+  context 'Associations' do
+    it { should have_many(:meeting_rooms) }
+    it { should belong_to(:office) }
+    it { should have_many(:office_managers) }
+  end 
 end

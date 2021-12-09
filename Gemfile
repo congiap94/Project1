@@ -35,7 +35,6 @@ group :development, :test do
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
-  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -55,6 +54,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -63,4 +64,3 @@ gem 'bullet', group: 'development'
 gem 'kaminari'
 gem 'rubocop', require: false
 gem 'active_model_serializers', '~> 0.10.12'
-gem 'simplecov', require: false, group: :test

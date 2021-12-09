@@ -3,5 +3,5 @@
 class User < ApplicationRecord
   belongs_to :office
   has_many :meeting_rooms, dependent: :destroy
-  has_many :users
+  has_many :office_managers
 end
