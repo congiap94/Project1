@@ -10,9 +10,12 @@ module Api
         render_error_message(401, 'You are not admin of offcies') unless policy.admin?
       end
 
-      def page_param
+      def page
         params[:page] || 1
-        params[:per_page] = 3 unless params[:per_page].present?
+      end
+
+      def limit
+        params[:per_page] || 3
       end
 
       private
