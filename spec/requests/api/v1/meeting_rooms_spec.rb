@@ -18,7 +18,6 @@ RSpec.describe 'Api::V1::MeetingRooms', type: :request do
     let(:invalid_attribues) do
       { name: 'Room 1', seat: '9', office_id: office_1.id, user_id: user_1.id }
     end
-
     context 'Authentication' do
       context 'When OfficeManager not found' do
         it 'raise Could not find OfficeManager' do

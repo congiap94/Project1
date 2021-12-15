@@ -7,4 +7,5 @@ class MeetingRoom < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { scope: :office_id }
   validates :seat, presence: true
+  default_scope { order(created_at: :desc) }
 end
